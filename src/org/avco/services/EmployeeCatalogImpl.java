@@ -11,6 +11,7 @@ import javax.jws.soap.SOAPBinding.Style;
 
 import org.avco.business.EmployeeService;
 import org.avco.business.EmployeeServiceImpl;
+import org.avco.exception.InvalidInputException;
 import org.avco.vo.EmployeeBean;
 
 //EmployeeCatalog is the service endpoint interface.
@@ -24,11 +25,7 @@ public class EmployeeCatalogImpl implements EmployeeCatalog {
 		return employeeService.fetchEmployees();
 	}
 	
-	public List<EmployeeBean> fetchEmployees2(){
-		return employeeService.fetchEmployees();
-	}
-	
-	public EmployeeBean fetchEmployeeById(long id){
+	public EmployeeBean fetchEmployeeById(long id) throws InvalidInputException{
 		return employeeService.fetchEmployeeById(id);
 	}
 }

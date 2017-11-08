@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 //Root Element indicates the element is the root of the whole xml structure.
 //xmlType -> we can customize the element using the attributes of the xmltype.
 @XmlRootElement(name="Employee")
-@XmlType(propOrder={"id","ssn","firstName","lastName"})
+@XmlType(propOrder={"id","ssn","firstName","lastName","addressBean"})
 public class EmployeeBean {
 
 	private String firstName;

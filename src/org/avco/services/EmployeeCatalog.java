@@ -9,6 +9,7 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
+import org.avco.exception.InvalidInputException;
 import org.avco.vo.EmployeeBean;
 
 //name -> corresponds to name attribute in portType element of WSDL.
@@ -17,7 +18,7 @@ import org.avco.vo.EmployeeBean;
 //The types are isolated by grouping into namespace (or package in java world). By default namespace is autoderived from package in reverse order.
 
 @WebService(name="AvcoEmployees", targetNamespace="http://avcoemployees.com")
-@SOAPBinding(style=Style.DOCUMENT)
+//@SOAPBinding(style=Style.DOCUMENT)
 //
 public interface EmployeeCatalog {
 
@@ -31,7 +32,7 @@ public interface EmployeeCatalog {
 	//List<EmployeeBean> fetchEmployees2();
 
 	@WebMethod(action="fetch_employee_id", operationName="findEmployeeById")
-	@WebResult(partName="lookupOutput")
-	EmployeeBean fetchEmployeeById(@WebParam(partName="lookupInput") long id);
+	@WebResult(partName="lookupOutput",name="Employee")
+	EmployeeBean fetchEmployeeById(@WebParam(partName="lookupInput") long id) throws InvalidInputException;
 
 }
