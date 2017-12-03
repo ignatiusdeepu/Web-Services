@@ -18,13 +18,13 @@ import org.avco.vo.EmployeeBean;
 //The types are isolated by grouping into namespace (or package in java world). By default namespace is autoderived from package in reverse order.
 
 @WebService(name="AvcoEmployees", targetNamespace="http://avcoemployees.com")
-//@SOAPBinding(style=Style.DOCUMENT)
+@SOAPBinding(style=Style.DOCUMENT)
 //
 public interface EmployeeCatalog {
 
 	//action property allows us to give a name to the action.(soapAction)
 	//operation name changes the operation name.
-	@WebMethod(action="fetch_employee", operationName="findEmployee")
+	@WebMethod(action="fetch_employee", operationName="findAllEmployee")
 	List<EmployeeBean> fetchEmployees();
 
 	//Exclude a webmethod from being published as an operation of webservice.
@@ -32,7 +32,7 @@ public interface EmployeeCatalog {
 	//List<EmployeeBean> fetchEmployees2();
 
 	@WebMethod(action="fetch_employee_id", operationName="findEmployeeById")
-	@WebResult(partName="lookupOutput",name="Employee")
+	@WebResult(name="Employee")
 	EmployeeBean fetchEmployeeById(@WebParam(partName="lookupInput") long id) throws InvalidInputException;
 
 }

@@ -20,6 +20,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 			 throw new InvalidInputException("Invalid Input for id : "+id, "100");
 		 }
 		 return empDao.fetchEmployeeById(id);
+		 //make soap req to exchange rate provider
+		 //get the response ffrom the provider.
+		 //do the necessary processing.
 	 }
 
 }
